@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yusuf Nugraha — Technical Product Manager</title>
+<meta name="description" content="Technical Product Manager with 11+ years in software engineering and 4+ years in product management across banking, fintech, budgeting, transportation and mining safety.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --text: #1c1917;
+    --muted: #57534e;
+    --subtle: #a8a29e;
+    --border: #e7e5e4;
+    --accent: #0f766e;
+    --accent-soft: #ccfbf1;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+      --subtle: #78716c; --border: #292524; --accent: #2dd4bf; --accent-soft: #134e4a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+    --subtle: #78716c; --border: #292524; --accent: #2dd4bf; --accent-soft: #134e4a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+    transition: background .3s, color .3s;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .8rem; letter-spacing: .02em; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent; transition: border-color .3s;
+  }
+  nav.scrolled { border-bottom-color: var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 700; letter-spacing: -.02em; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; align-items: center; font-size: .9rem; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .theme-btn {
+    width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); cursor: pointer; display: grid; place-items: center;
+  }
+  .theme-btn svg { width: 16px; height: 16px; }
+
+  /* Hero */
+  .hero { padding: 96px 0 72px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px;
+    border: 1px solid var(--border); border-radius: 999px; background: var(--surface);
+    font-size: .8rem; color: var(--muted); margin-bottom: 28px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.2); }
+  h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.08; letter-spacing: -.035em; font-weight: 700; }
+  h1 .accent { color: var(--accent); }
+  .lead { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--muted); max-width: 620px; margin: 24px 0 36px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 12px;
+    font-weight: 500; font-size: .95rem; transition: transform .15s, box-shadow .15s, background .15s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--text); color: var(--bg); }
+  .btn-primary:hover { box-shadow: var(--shadow); }
+  .btn-ghost { border: 1px solid var(--border); background: var(--surface); }
+  .btn svg { width: 16px; height: 16px; }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 72px;
+    background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  }
+  .stat { background: var(--surface); padding: 24px; }
+  .stat b { display: block; font-size: 1.9rem; letter-spacing: -.03em; line-height: 1.1; }
+  .stat span { font-size: .85rem; color: var(--muted); }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  .eyebrow { color: var(--accent); margin-bottom: 12px; display: block; }
+  h2 { font-size: clamp(1.7rem, 3.5vw, 2.2rem); letter-spacing: -.03em; line-height: 1.2; margin-bottom: 16px; }
+  .section-intro { color: var(--muted); max-width: 620px; margin-bottom: 40px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .card h3 { font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .icon {
+    width: 32px; height: 32px; border-radius: 9px; background: var(--accent-soft); color: var(--accent);
+    display: grid; place-items: center; flex-shrink: 0;
+  }
+  .icon svg { width: 16px; height: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: .8rem; padding: 4px 10px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--muted); }
+
+  /* Timeline */
+  .timeline { position: relative; }
+  .job {
+    display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 28px 0;
+    border-top: 1px solid var(--border);
+  }
+  .job:last-child { border-bottom: 1px solid var(--border); }
+  .job-meta .mono { color: var(--subtle); }
+  .job-meta .company { font-weight: 500; margin-top: 4px; font-size: .95rem; }
+  .job h3 { font-size: 1.15rem; letter-spacing: -.01em; margin-bottom: 8px; }
+  .job p { color: var(--muted); }
+  .job ul { list-style: none; margin-top: 12px; display: none; }
+  .job.open ul { display: block; }
+  .job li { color: var(--muted); padding-left: 18px; position: relative; margin-bottom: 6px; font-size: .95rem; }
+  .job li::before { content: ""; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .toggle {
+    margin-top: 12px; background: none; border: 0; color: var(--accent); font: inherit; font-size: .9rem;
+    font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+  }
+  .toggle svg { width: 14px; height: 14px; transition: transform .2s; }
+  .job.open .toggle svg { transform: rotate(180deg); }
+  .current { display: inline-block; font-size: .7rem; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-left: 8px; vertical-align: middle; font-weight: 600; }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .project { display: flex; flex-direction: column; }
+  .project .domain { color: var(--accent); margin-bottom: 10px; }
+  .project h3 { font-size: 1.15rem; margin-bottom: 8px; letter-spacing: -.01em; }
+  .project p { color: var(--muted); font-size: .95rem; flex: 1; margin-bottom: 16px; }
+
+  /* Education */
+  .creds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .creds .card p { color: var(--muted); font-size: .9rem; }
+  .creds .card h3 { margin-bottom: 4px; }
+
+  /* Contact */
+  .contact {
+    background: var(--text); color: var(--bg); border-radius: 24px; padding: 56px; text-align: center;
+  }
+  .contact h2 { margin-bottom: 12px; }
+  .contact p { opacity: .7; max-width: 480px; margin: 0 auto 28px; }
+  .contact .cta { justify-content: center; }
+  .contact .btn-primary { background: var(--bg); color: var(--text); }
+  .contact .btn-ghost { background: transparent; border-color: color-mix(in srgb, var(--bg) 25%, transparent); color: var(--bg); }
+
+  footer { padding: 40px 0; text-align: center; color: var(--subtle); font-size: .85rem; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .skills, .creds { grid-template-columns: 1fr; }
+    .projects { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .job { grid-template-columns: 1fr; gap: 8px; }
+    .nav-links a { display: none; }
+    .contact { padding: 40px 24px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    .hero { padding: 64px 0 48px; }
+    .stat { padding: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo">Yusuf<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="badge reveal"><span class="dot"></span> Product Manager · Bandung, Indonesia</div>
+      <h1 class="reveal">Building products with<br>an <span class="accent">engineer's mind</span>.</h1>
+      <p class="lead reveal">I'm Yusuf Nugraha, a Technical Product Manager who spent 11+ years writing backend systems before moving into product. I take products from requirements to production, across banking, fintech, budgeting, transportation and mining safety.</p>
+      <div class="cta reveal">
+        <a class="btn btn-primary" href="#contact">Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#experience">View experience</a>
+      </div>
+
+      <div class="stats reveal">
+        <div class="stat"><b data-count="11">11+</b><span>Years in software engineering</span></div>
+        <div class="stat"><b data-count="4">4+</b><span>Years in product management</span></div>
+        <div class="stat"><b data-count="5">5</b><span>Industries shipped in</span></div>
+        <div class="stat"><b>PSPO I</b><span>Scrum.org certified</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About / Skills -->
+  <section id="about">
+    <div class="wrap">
+      <span class="eyebrow mono reveal">01 — WHAT I DO</span>
+      <h2 class="reveal">Bridging business needs and engineering reality</h2>
+      <p class="section-intro reveal">I gather requirements and set priorities, then see features through development, testing, deployment and production support. Because I know backend development, API design and databases, I can talk with engineers about trade-offs and help them find the cause when something breaks.</p>
+
+      <div class="skills">
+        <div class="card reveal">
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5-6.5 4.5 2-7.5L2 9h7z"/></svg></span>Product</h3>
+          <div class="tags">
+            <span class="tag">Product Management</span><span class="tag">Product Ownership</span><span class="tag">Requirements Gathering</span><span class="tag">Prioritization</span><span class="tag">Backlog Management</span><span class="tag">Stakeholder Management</span><span class="tag">Sprint Planning</span><span class="tag">Release Management</span><span class="tag">Agile / Scrum</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>Technical</h3>
+          <div class="tags">
+            <span class="tag">API Design</span><span class="tag">Backend Development</span><span class="tag">Database Design</span><span class="tag">System Architecture</span><span class="tag">Java</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">ActiveMQ</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>Domains</h3>
+          <div class="tags">
+            <span class="tag">Banking & FinTech</span><span class="tag">Enterprise Software</span><span class="tag">Budgeting</span><span class="tag">Transportation</span><span class="tag">Mining Safety Tech</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="wrap">
+      <span class="eyebrow mono reveal">02 — EXPERIENCE</span>
+      <h2 class="reveal">From writing code to owning the product</h2>
+      <p class="section-intro reveal">Select a role to see the details.</p>
+
+      <div class="timeline">
+        <article class="job reveal open">
+          <div class="job-meta"><div class="mono">2026 — PRESENT</div><div class="company">PT Indo Trans Teknologi</div></div>
+          <div>
+            <h3>Product Manager <span class="current">CURRENT</span></h3>
+            <p>Own the Driver Monitoring System (DMS), a mining safety product for driver fatigue and behavior monitoring.</p>
+            <ul>
+              <li>Lead sprint planning and coordinate delivery across 2 backend, 2 frontend and 1 QA engineer, working with clients, hardware teams, BAs and engineering management.</li>
+              <li>Improved DMS alarm workflows so the Safety Division can verify and follow up on fatigue and behavioral alarms, including smoking detection.</li>
+              <li>Spotted a potential system overload from 6-month report queries and proposed asynchronous report generation with progress tracking.</li>
+              <li>Proposed alarm severity levels that companies and sub-companies can configure through the UI.</li>
+              <li>Delivered 5+ production deployments of new features, improvements and bug fixes.</li>
+            </ul>
+            <button class="toggle"><span>Hide details</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          </div>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-meta"><div class="mono">2023 — 2026</div><div class="company">PT Data Aksara Sangkuriang</div></div>
+          <div>
+            <h3>Product Owner</h3>
+            <p>Owned delivery of QNB Indonesia Mobile Banking and QNB Virtual Account, and contributed to transaction reconciliation.</p>
+            <ul>
+              <li>Gathered requirements directly from banking clients and prioritized features and release timing with stakeholders.</li>
+              <li>Coordinated delivery with 1 tech lead, 3 full-stack developers, 1 mobile developer and 1 QA.</li>
+              <li>Managed 4–5 projects at once during peak periods, prioritizing by user impact and business criticality.</li>
+              <li>Led delivery of debit card activation and PIN change in mobile banking.</li>
+              <li>Coordinated tech-stack upgrades for legacy systems and fixes for annual penetration-test findings.</li>
+              <li>Used backend experience to triage production incidents and point engineers to likely root causes.</li>
+              <li>Helped define clearer Product Owner, QA and Technical Writer responsibilities.</li>
+            </ul>
+            <button class="toggle"><span>Show details</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          </div>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-meta"><div class="mono">2022 — 2023</div><div class="company">PT GITS Indonesia</div></div>
+          <div>
+            <h3>Product Owner</h3>
+            <p>Moved from Senior Backend Developer into product ownership, taking on requirements, prioritization and stakeholder communication.</p>
+            <ul>
+              <li>Translated client business requirements into product requirements and development tasks.</li>
+              <li>Worked with development and QA teams from feature development through testing and production.</li>
+              <li>Managed stakeholder expectations and supported delivery to production.</li>
+            </ul>
+            <button class="toggle"><span>Show details</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          </div>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-meta"><div class="mono">2019 — 2022</div><div class="company">PT GITS Indonesia</div></div>
+          <div>
+            <h3>Senior Backend Developer</h3>
+            <p>Built backend services for NAV, a budgeting platform used by Danone and later adapted for Nabati.</p>
+            <ul>
+              <li>Designed a dynamic multi-level approval system configurable by org structure, users and budget amount.</li>
+              <li>Implemented amount-based approval rules and temporary approval delegation.</li>
+              <li>Designed the database and APIs with Node.js and PostgreSQL, using Redis for queueing.</li>
+              <li>Shipped urgent hotfixes for production issues and took part in code reviews.</li>
+            </ul>
+            <button class="toggle"><span>Show details</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          </div>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-meta"><div class="mono">2012 — 2019</div><div class="company">PT Data Aksara Sangkuriang</div></div>
+          <div>
+            <h3>Java Engineer / Project Leader</h3>
+            <p>Built enterprise web apps, mobile APIs and desktop apps, mostly for banking clients, and grew into a project lead role.</p>
+            <ul>
+              <li>Worked on QNB Mobile Banking, QNB Corporate Internet Banking, QNB Virtual Account and a Taxi Ordering System.</li>
+              <li>Built with JSF / PrimeFaces, PostgreSQL and WildFly; ActiveMQ for queueing, MongoDB for logging.</li>
+              <li>Built desktop apps that talk directly to EDC terminals and receipt printers.</li>
+              <li>As Project Leader: client communication, change requests, planning, and leading 2 full-stack developers.</li>
+            </ul>
+            <button class="toggle"><span>Show details</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="wrap">
+      <span class="eyebrow mono reveal">03 — SELECTED PROJECTS</span>
+      <h2 class="reveal">Products I've helped build</h2>
+      <p class="section-intro reveal">A few products I've worked on as an engineer, a Product Owner, or both.</p>
+
+      <div class="projects">
+        <div class="card project reveal">
+          <span class="domain mono">BANKING</span>
+          <h3>QNB Mobile Banking</h3>
+          <p>Mobile banking platform supporting BI-FAST, RTGS, SKN, QRIS, time deposits, foreign currency transactions and debit card features.</p>
+          <div class="tags"><span class="tag">Product Owner</span><span class="tag">Java Engineer</span></div>
+        </div>
+        <div class="card project reveal">
+          <span class="domain mono">MINING SAFETY</span>
+          <h3>Driver Monitoring System</h3>
+          <p>Monitors driver fatigue and behavior, with alarm management, verification and Safety Division follow-up.</p>
+          <div class="tags"><span class="tag">Product Manager</span></div>
+        </div>
+        <div class="card project reveal">
+          <span class="domain mono">ENTERPRISE BUDGETING</span>
+          <h3>NAV — Danone Budgeting System</h3>
+          <p>Enterprise budgeting platform with approval workflows that are multi-level and configurable by org structure and amount.</p>
+          <div class="tags"><span class="tag">Senior Backend Dev</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div>
+        </div>
+        <div class="card project reveal">
+          <span class="domain mono">TRANSPORTATION</span>
+          <h3>Taxi Ordering System</h3>
+          <p>Customer and driver apps with live location tracking, operations dashboards, maps integration and incident reporting.</p>
+          <div class="tags"><span class="tag">Java Engineer</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="wrap">
+      <span class="eyebrow mono reveal">04 — EDUCATION & CERTIFICATIONS</span>
+      <h2 class="reveal">Credentials</h2>
+      <div class="creds" style="margin-top:32px">
+        <div class="card reveal"><h3>Informatics Engineering</h3><p>Universitas Widyatama · 2019</p></div>
+        <div class="card reveal"><h3>Professional Scrum Product Owner I</h3><p>PSPO I · Scrum.org</p></div>
+        <div class="card reveal"><h3>EF SET English Certificate</h3><p>C2 Proficient · 72/100</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact reveal">
+        <h2>Let's build something useful</h2>
+        <p>I'm open to product roles where technical depth matters. The quickest way to reach me is by email or LinkedIn.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:usufni@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            usufni@gmail.com
+          </a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/yusuf-nugraha-07b77070/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Yusuf Nugraha · Bandung, Indonesia</div>
+</footer>
+
+<script>
+  // Theme toggle (remembered per visitor)
+  const root = document.documentElement;
+  try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    const isDark = root.dataset.theme
+      ? root.dataset.theme === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = isDark ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  });
+
+  // Nav border on scroll
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+
+  // Expand / collapse experience
+  document.querySelectorAll('.job .toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const job = btn.closest('.job');
+      const open = job.classList.toggle('open');
+      btn.querySelector('span').textContent = open ? 'Hide details' : 'Show details';
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
